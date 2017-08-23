@@ -1,0 +1,101 @@
+2015 Employee Smithson,John 2000
+2016 Salesman Jokey,Will 3000 136
+2015 Executive Obama,Barack 5000 150
+2016 Salesman Flynne,Jose 1500 201
+2015 Salesman Dance,Kay 2500 199
+2016 Executive Brie,Cam 5500 99
+2016 Employee Hugley,Stephaine 4821
+2016 Employee Ramon,Enola 7451
+2016 Employee Lizaola,Jacquline 6966
+2016 Employee Watford,Curtis 1487
+2016 Employee Portner,Alisha 3138
+2016 Employee Carrithers,Librada 5288
+2016 Employee Mccoin,Maya 6359
+2016 Employee Tocco,Reginald 4934
+2016 Employee Oday,Barb 7312
+2016 Employee Akin,Zack 3615
+2016 Employee Lehr,Zana 6927
+2016 Employee Goucher,Elba 2221
+2016 Employee Rugh,Jinny 3375
+2016 Employee Whitesides,Alda 7984
+2016 Employee Dona,Starla 2635
+2016 Executive Straker,Latrice 5521 73
+2016 Executive Muniz,Jae 5156 112
+2016 Executive Lamers,Katherina 1302 132
+2016 Executive Honea,Eugenio 5041 205
+2016 Executive Mann,Ngoc 2567 80
+2016 Executive Bate,Keisha 5196 58
+2015 Employee Tongue,Javier 2999
+2015 Employee Carter,Sunny 7273
+2015 Employee Debus,Angella 4907
+2015 Employee Fluellen,Kanesha 6042
+2015 Employee Hamburger,Alecia 4332
+2015 Employee Renaud,Mirna 7796
+2015 Employee Hetzler,Twanna 5802
+2015 Employee Ollis,Cyrstal 7264
+2015 Employee Mashburn,Else 2521
+2015 Employee Shapiro,Retta 3759
+2015 Employee Osuna,Melita 2774
+2015 Employee Lilly,Claretta 6539
+2015 Employee Hobbs,Thanh 5756
+2015 Employee Alfaro,Janice 6638
+2015 Employee Eskridge,Coletta 5126
+2015 Employee Mayhue,Damion 5339
+2015 Employee Birkland,Hunter 7969
+2015 Employee Carmichael,Joshua 1168
+2015 Employee Sandman,Norah 4083
+2015 Salesman Findlay,Tracee 4913 100
+2015 Salesman Richardson,Geoffrey 2349 116
+2015 Salesman Lemieux,Nella 2056 111
+2015 Salesman Lipscomb,Lettie 7090 158
+2015 Salesman Berkman,Angelica 7515 148
+2015 Salesman Loos,Shiela 4451 136
+2015 Salesman Witcher,Barbera 4362 139
+2015 Salesman Verhey,Elanor 5304 115
+2015 Salesman Calico,Ha 1272 211
+2015 Salesman Pancoast,Annett 4571 99
+2015 Salesman Mchone,Stacy 6182 153
+2015 Salesman Cudney,Alise 2352 195
+2015 Salesman Lippman,Ignacia 6020 198
+2015 Salesman Hebert,Dorthy 7897 167
+2015 Salesman Diggins,Aurelia 2504 207
+2015 Salesman Nielsen,Kerry 3955 143
+2015 Salesman Kliebert,Randee 6010 61
+2015 Salesman Meaders,Trudie 4491 176
+2015 Salesman Byrne,Huong 3269 132
+2015 Salesman Macfarlane,Edith 5004 105
+2015 Salesman Raco,Carolina 7446 81
+2015 Salesman Cooper,Cher 5386 171
+2015 Salesman Barwick,Dominga 2747 164
+2015 Salesman Chirico,Verna 5277 207
+2015 Executive Larochelle,Alfonzo 1029 91
+2015 Executive Olive,Reggie 1825 192
+2015 Executive Mcnary,Magan 4157 65
+2015 Executive Provencher,Jaunita 4749 203
+2015 Executive Bloomer,Jeremiah 5379 129
+2015 Executive Neblett,Veda 2241 64
+2015 Executive Ryan,Loreta 5121 74
+2015 Executive Sultan,Machelle 7084 67
+2015 Executive Albee,Twanda 7422 128
+2016 Executive Quinney,Tyesha 7473 157
+2016 Salesman Nass,Shasta 5269 117
+2016 Salesman Carroway,Twana 7895 204
+2016 Salesman Howze,Tad 3623 157
+2016 Salesman Hintz,Benton 3033 75
+2016 Salesman Chamness,Chanel 3234 85
+2016 Salesman Stuber,Tilda 3323 63
+2016 Salesman Bequette,Wm 7680 190
+2016 Salesman Spradley,Preston 6296 51
+2016 Salesman Sharman,Leigha 6667 68
+2016 Salesman Hacker,Yan 6994 87
+2016 Salesman Baur,Darrin 2029 160
+2016 Salesman Coombes,Ruthie 5402 173
+2016 Salesman Braddock,Daniel 5835 208
+2016 Salesman Bohler,Kortney 6332 130
+2016 Salesman Kittelson,Anika 3329 180
+2016 Salesman Fair,Ines 5689 59
+2016 Salesman Housman,Adell 6773 116
+2016 Salesman Marano,Sylvester 2561 202
+2016 Salesman Kitamura,Vallie 3640 144
+2016 Salesman Bellin,Rachal 4853 86
+2016 Salesman Ashby,Stevie 7455 151
