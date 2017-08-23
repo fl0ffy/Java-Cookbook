@@ -1,0 +1,31 @@
+(25 points) Write a Java program the displays the State bird and flower.
+You should use your IDE for this exercise. You should also use Java
+classes to their full extent to include multiple methods and at least
+two classes. The program should prompt the user to enter a State and print
+both the State bird and flower. The user should be able to enter a State
+without worrying about case. (e.g. Users could enter Maryland, maryland,
+MARYLAND or any other possible combination of lower and upper case characters.
+States may also contain leading and trailing white spaces. Hint: Store the
+State information in a multidimensional array. The program should continue to
+prompt the user to enter a state until “None” is entered. You will need to do
+some research to find the State birds and flowers. Here is a sample run:
+
+    Enter a State or None to exit:
+    Maryland
+    Bird: Baltimore Oriole
+    Flower: Black-eyed Susan
+    Enter a State or None to exit:
+    Delaware
+    Bird: Blue Hen Chicken
+    Flower: Peach Blossom
+    Enter a State or None to exit:
+    None
+
+Your deliverables include all Java files (.java) and a single word (or PDF)
+document. The Java files should be named appropriately for your applications.
+Your word document should include screen captures showing the successful
+compiling and running of each application, and a detailed description of the test
+plan for each application. The screen captures should document your use of the IDE.
+The test plan should include the input, expected output, actual output and if
+the test case passed or failed. Submit your files to the Homework 4 assignment
+area no later than the due date listed in the calendar.
