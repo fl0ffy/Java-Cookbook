@@ -9,7 +9,7 @@ public class Employee {
 
     //----- Fields -----
     private String employeeName;
-    protected int monthlySalary;
+    private int monthlySalary;
 
     //----- Constructors -----
     //constructor that allows the name and monthly salary to be initialized
@@ -23,6 +23,11 @@ public class Employee {
     public int annualSalary() {
         return this.monthlySalary * 12;
     }   //end annualSalary method
+
+    //method returns monthly salary
+    public int getMonthlySalary() {
+        return this.monthlySalary;
+    }   //end getMonthlySalary method
 
     //method returns String containing the name and monthly salary, appropriately labeled
     public String toString() {

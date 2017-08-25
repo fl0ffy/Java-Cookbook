@@ -27,10 +27,10 @@ public class Salesman extends Employee {
             commission = 0;
         }
         if ((100 < numItemsSold) & (numItemsSold < 200)) {
-            commission = monthlySalary;
+            commission = getMonthlySalary();
         }
         if (200 < numItemsSold) {
-            commission = monthlySalary * 2;
+            commission = getMonthlySalary() * 2;
         }
 
         return super.annualSalary() + commission;
