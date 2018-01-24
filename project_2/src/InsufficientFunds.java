@@ -1,7 +1,7 @@
 /**
  * Filename: InsufficientFunds.java
  * Author: John Bernat
- * Date: Jan 2017
+ * Date: ?
  * Purpose: User defined checked exception
  */
 

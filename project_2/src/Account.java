@@ -1,7 +1,7 @@
 /**
  * Filename: Account.java
  * Author: John Bernat
- * Date: Jan 2017
+ * Date: ?
  * Purpose: Used to create account objects
  */
 

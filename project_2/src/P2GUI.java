@@ -1,13 +1,45 @@
 /**
  * Filename: P2GUI.java
  * Author: John Bernat
- * Date: Jan 2017
- * Purpose: Define GUI and contains main method
+ * Date: ?
+ * Purpose: Define GUI, event handlers and contains main method
  */
 
-public class P2GUI {
+import javax.swing.*;
+import java.awt.*;
 
-    //define GUI
+public class P2GUI extends JFrame {
+
+    private TextPanel textPanel;
+    private Toolbar toolbar;
+
+    //constructor method
+    public P2GUI () {
+        //create JFrame object
+        super("ATM Machine");
+
+        //set JFrame layout and other options
+        setLayout(new BorderLayout());
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 300);
+
+        //create components
+        textPanel = new TextPanel();
+        toolbar = new Toolbar();
+
+        //toolbar.setTextPanel(textPanel);
+        toolbar.setStringListenter(new StringListener() {
+            public void textEmitted(String text) {
+                //System.out.print(text);
+                textPanel.appendText(text);
+            }
+        });
+
+        //add components to JFrame
+        add(toolbar, BorderLayout.NORTH);
+        add(textPanel, BorderLayout.CENTER);
+    }
 
     //two account abjects (checking, savings)
 
