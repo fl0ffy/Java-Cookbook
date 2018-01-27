@@ -6,22 +6,24 @@
  */
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class P2GUI extends JFrame implements ActionListener {
+public class P2GUI extends JFrame /*implements ActionListener*/ {
 
-    private TextPanel textPanel;
     private JButton withdrawBtn;
     private JButton depositBtn;
     private JButton transferToBtn;
     private JButton balanceBtn;
-    private Toolbar toolbar;
-    private StringListener textListener;
+    //private Toolbar toolbar;
+    //private StringListener textListener;
     private JTextArea textArea;
+    private JRadioButton checkingRbtn;
+    private JRadioButton savingsRbtn;
 
-    //constructor method
+    //===============> constructor method <===============
     public P2GUI () {
         //create JFrame object
         super("ATM Machine");
@@ -33,21 +35,29 @@ public class P2GUI extends JFrame implements ActionListener {
         setSize(300, 300);
 
         //create components
-        textPanel = new TextPanel();
-        toolbar = new Toolbar();
+        //toolbar = new Toolbar();
         textArea = new JTextArea();
-
         withdrawBtn = new JButton("Withdrawl");
         depositBtn = new JButton("Deposit");
         transferToBtn = new JButton("Transfer To");
         balanceBtn = new JButton("Balance");
+        checkingRbtn = new JRadioButton("Checking");
+        savingsRbtn = new JRadioButton("Savings");
 
-        withdrawBtn.addActionListener(this);
-        depositBtn.addActionListener(this);
-        transferToBtn.addActionListener(this);
-        balanceBtn.addActionListener(this);
+        // setup events on click ????????
+        //withdrawBtn.addActionListener(this);
+        //depositBtn.addActionListener(this);
+        //transferToBtn.addActionListener(this);
+        //balanceBtn.addActionListener(this);
 
-        add(new JScrollPane(textArea), BorderLayout.CENTER);
+        //add components to JFrame
+            //BorderLayout does not work
+        add(new JScrollPane(textArea), BorderLayout.CENTER); // figure out how to have only the single field
+        add(withdrawBtn, BorderLayout.NORTH);
+        add(depositBtn, BorderLayout.EAST);
+        add(transferToBtn, BorderLayout.CENTER);
+        add(balanceBtn, BorderLayout.WEST);
+        add(checkingRbtn, BorderLayout.AFTER_LAST_LINE);
 
         /*//toolbar.setTextPanel(textPanel);
         toolbar.setStringListenter(new StringListener() {
@@ -57,12 +67,13 @@ public class P2GUI extends JFrame implements ActionListener {
             }
         });*/
 
-        //add components to JFrame
-        //add(toolbar, BorderLayout.NORTH);
-        add(textPanel, BorderLayout.CENTER);
 
-    }
 
+
+    } // end P2GUI constructor method
+
+
+    /*
     public void setStringListenter(StringListener listener){
         this.textListener = listener;
     }
@@ -88,11 +99,30 @@ public class P2GUI extends JFrame implements ActionListener {
             }
         }
     }
-    //two account abjects (checking, savings)
+    */
 
-    //Main method
 
-    //constructor to build GUI
+
+
+
+
+
+    //====================> Main method <===================
+    public static void main (String[] args) {
+
+        // setup GUI
+        SwingUtilities.invokeLater(new Runnable() {         //look into replacing with lambda
+            public void run() {
+                //create and run GUI object
+                new P2GUI();
+            }
+        });
+
+
+        //two account abjects (checking, savings)
+
+    } //end main method
+
 
     //withdraw button w/ event handling (joptionpane error for insufficientFunds exception)
 
