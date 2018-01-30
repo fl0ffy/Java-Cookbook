@@ -11,38 +11,79 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class P2GUI extends JFrame /*implements ActionListener*/ {
+public class P2GUI {
 
-    private JButton withdrawBtn;
-    private JButton depositBtn;
-    private JButton transferToBtn;
-    private JButton balanceBtn;
+
+    //private JButton withdrawBtn;
+    //private JButton depositBtn;
+    //private JButton transferToBtn;
+    //private JButton balanceBtn;
     //private Toolbar toolbar;
     //private StringListener textListener;
-    private JTextArea textArea;
-    private JRadioButton checkingRbtn;
-    private JRadioButton savingsRbtn;
+    //private JTextArea textArea;
+    //private JRadioButton checkingRbtn;
+    //private JRadioButton savingsRbtn;
 
     //===============> constructor method <===============
     public P2GUI () {
         //create JFrame object
-        super("ATM Machine");
-
+        JFrame frame = new JFrame("ATM Machine");
         //set JFrame layout and other options
-        setLayout(new BorderLayout());
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 300);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 300);
 
+        // create panel
+        JPanel panel = new JPanel();
+        JButton withdrawBtn = new JButton("Withdrawl");
+        JButton depositBtn = new JButton("Deposit");
+        JButton transferBtn = new JButton("Transfer To");
+        JButton balanceBtn = new JButton("Balance");
+        JRadioButton checkingRBtn = new JRadioButton("Checking");
+        JRadioButton savingsRBtn = new JRadioButton("Savings");
+        panel.add(withdrawBtn);
+        panel.add(depositBtn);
+        panel.add(transferBtn);
+        panel.add(balanceBtn);
+        panel.add(checkingRBtn);
+        panel.add(savingsRBtn);
+        frame.add(panel);
+
+        withdrawBtn.addActionListener(e -> System.out.print("Boom, Withdraw!!!!"));
+        depositBtn.addActionListener(e -> System.out.print("Sweet, Deposit!"));
+        transferBtn.addActionListener(e -> System.out.print("Tots!, Transferred!"));
+        balanceBtn.addActionListener(e -> System.out.print("Balance, Bitch!"));
+
+        /*public void actionPerformed(ActionEvent e) {
+            JButton clicked = (JButton)e.getSource();
+
+            if (clicked == withdrawBtn) {
+                System.out.println("Withdraw");
+            } else if (clicked == depositBtn){
+                System.out.println("Withdraw");
+                //if(textListener != null) {
+                //    textListener.textEmitted("Deposit\n");
+                //}
+            } else if (clicked == transferToBtn){
+                if(textListener != null) {
+                    textListener.textEmitted("Transfer To\n");
+                }
+            } else if (clicked == balanceBtn){
+                if(textListener != null) {
+                    textListener.textEmitted("Balance\n");
+                }
+            }
+        }
+        */
         //create components
         //toolbar = new Toolbar();
-        textArea = new JTextArea();
-        withdrawBtn = new JButton("Withdrawl");
-        depositBtn = new JButton("Deposit");
-        transferToBtn = new JButton("Transfer To");
-        balanceBtn = new JButton("Balance");
-        checkingRbtn = new JRadioButton("Checking");
-        savingsRbtn = new JRadioButton("Savings");
+        //textArea = new JTextArea();
+        //withdrawBtn = new JButton("Withdrawl");
+        //depositBtn = new JButton("Deposit");
+        //transferToBtn = new JButton("Transfer To");
+        //balanceBtn = new JButton("Balance");
+        //checkingRbtn = new JRadioButton("Checking");
+        //savingsRbtn = new JRadioButton("Savings");
 
         // setup events on click ????????
         //withdrawBtn.addActionListener(this);
@@ -52,12 +93,12 @@ public class P2GUI extends JFrame /*implements ActionListener*/ {
 
         //add components to JFrame
             //BorderLayout does not work
-        add(new JScrollPane(textArea), BorderLayout.CENTER); // figure out how to have only the single field
-        add(withdrawBtn, BorderLayout.NORTH);
-        add(depositBtn, BorderLayout.EAST);
-        add(transferToBtn, BorderLayout.CENTER);
-        add(balanceBtn, BorderLayout.WEST);
-        add(checkingRbtn, BorderLayout.AFTER_LAST_LINE);
+        //frame.add(new JScrollPane(textArea), BorderLayout.CENTER); // figure out how to have only the single field
+        //frame.add(withdrawBtn, BorderLayout.NORTH);
+        //frame.add(depositBtn, BorderLayout.EAST);
+        //frame.add(transferToBtn, BorderLayout.CENTER);
+        //frame.add(balanceBtn, BorderLayout.WEST);
+        //frame.add(checkingRbtn, BorderLayout.AFTER_LAST_LINE);
 
         /*//toolbar.setTextPanel(textPanel);
         toolbar.setStringListenter(new StringListener() {
