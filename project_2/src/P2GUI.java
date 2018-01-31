@@ -33,7 +33,7 @@ public class P2GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
 
-        // create panel
+        // create panel components
         JPanel panel = new JPanel();
         JButton withdrawBtn = new JButton("Withdrawl");
         JButton depositBtn = new JButton("Deposit");
@@ -41,18 +41,35 @@ public class P2GUI {
         JButton balanceBtn = new JButton("Balance");
         JRadioButton checkingRBtn = new JRadioButton("Checking");
         JRadioButton savingsRBtn = new JRadioButton("Savings");
+        JTextField text = new JTextField(20);   // use text.getText()
+
+
+        //setup and group radio buttons together
+        checkingRBtn.setActionCommand("Checking");
+        savingsRBtn.setActionCommand("Savings");
+        ButtonGroup group = new ButtonGroup();
+        group.add(checkingRBtn);
+        group.add(savingsRBtn);
+            //use group.getSelection().getActionCommand() to get value
+
+        //add components to panel
         panel.add(withdrawBtn);
         panel.add(depositBtn);
         panel.add(transferBtn);
         panel.add(balanceBtn);
         panel.add(checkingRBtn);
         panel.add(savingsRBtn);
+        panel.add(text);
+
+        //add panel to frame
         frame.add(panel);
 
-        withdrawBtn.addActionListener(e -> System.out.print("Boom, Withdraw!!!!"));
-        depositBtn.addActionListener(e -> System.out.print("Sweet, Deposit!"));
-        transferBtn.addActionListener(e -> System.out.print("Tots!, Transferred!"));
-        balanceBtn.addActionListener(e -> System.out.print("Balance, Bitch!"));
+        // ActionListeners
+
+        withdrawBtn.addActionListener(e -> System.out.println("Boom, Withdraw of " + text.getText() + " from " + group.getSelection().getActionCommand() + " !!!!"));
+        depositBtn.addActionListener(e -> System.out.println("Sweet, Deposit of " + text.getText() + " from " + group.getSelection().getActionCommand()  + " !"));
+        transferBtn.addActionListener(e -> System.out.println("Tots!, Transferred " + text.getText() + " from " + group.getSelection().getActionCommand()  + " !"));
+        balanceBtn.addActionListener(e -> System.out.println("Balance, Bitch has " + text.getText() + " from " + group.getSelection().getActionCommand()  + " !"));
 
         /*public void actionPerformed(ActionEvent e) {
             JButton clicked = (JButton)e.getSource();
