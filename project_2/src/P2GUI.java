@@ -82,7 +82,7 @@ public class P2GUI {
             }
             if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
                 try {
-                    checking.withdraw(Double.parseDouble(textField.getText()));
+                    savings.withdraw(Double.parseDouble(textField.getText()));
                 } catch (InsufficientFunds funds) {
                     System.out.println(funds.getDeficientFunds() + " needed");
                     JOptionPane.showMessageDialog(frame,
@@ -116,7 +116,7 @@ public class P2GUI {
             }
             if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
                 try {
-                    checking.withdraw(Double.parseDouble(textField.getText()));
+                    savings.withdraw(Double.parseDouble(textField.getText()));
                 } catch (InsufficientFunds funds) {
                     System.out.println(funds.getDeficientFunds() + " needed");
                 }
