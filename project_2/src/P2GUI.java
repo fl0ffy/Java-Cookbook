@@ -6,59 +6,61 @@
  */
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class P2GUI {
 
 
-    //private JButton withdrawBtn;
-    //private JButton depositBtn;
-    //private JButton transferToBtn;
-    //private JButton balanceBtn;
-    //private Toolbar toolbar;
-    //private StringListener textListener;
-    //private JTextArea textArea;
-    //private JRadioButton checkingRbtn;
-    //private JRadioButton savingsRbtn;
+    private JButton withdrawBtn;
+    private JButton depositBtn;
+    private JButton transferBtn;
+    private JButton balanceBtn;
+    private JRadioButton checkingRadioBtn;
+    private JRadioButton savingsRadioBtn;
+    private JTextField textField;
+    private ButtonGroup btnGroup;
+    private JPanel panel;
+    private JFrame frame;
+    //private Account checking;
+    //private Account savings;
+    //private DecimalFormat df = new DecimalFormat("#.##");
+
 
     //===============> constructor method <===============
     public P2GUI (Account checking, Account savings) {
 
         //-----> Components <-----//
-        JButton withdrawBtn = new JButton("Withdrawl");
-        JButton depositBtn = new JButton("Deposit");
-        JButton transferBtn = new JButton("Transfer To");
-        JButton balanceBtn = new JButton("Balance");
-        JRadioButton checkingRBtn = new JRadioButton("Checking");
-        JRadioButton savingsRBtn = new JRadioButton("Savings");
-        JTextField text = new JTextField(20);   // use text.getText()
+        withdrawBtn = new JButton("Withdrawl");
+        depositBtn = new JButton("Deposit");
+        transferBtn = new JButton("Transfer To");
+        balanceBtn = new JButton("Balance");
+        checkingRadioBtn = new JRadioButton("Checking");
+        savingsRadioBtn = new JRadioButton("Savings");
+        textField = new JTextField(20);   // use text.getText()
 
         //-----> Radio Button Group <-----//
-        checkingRBtn.setActionCommand("Checking");
-        savingsRBtn.setActionCommand("Savings");
-        ButtonGroup group = new ButtonGroup();
-        group.add(checkingRBtn);
-        group.add(savingsRBtn);
-        checkingRBtn.setSelected(true);
+        checkingRadioBtn.setActionCommand("Checking");
+        savingsRadioBtn.setActionCommand("Savings");
+        btnGroup = new ButtonGroup();
+        btnGroup.add(checkingRadioBtn);
+        btnGroup.add(savingsRadioBtn);
+        checkingRadioBtn.setSelected(true);
             //use group.getSelection().getActionCommand() to get value
 
         //-----> Panel <-----//
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         panel.add(withdrawBtn);
         panel.add(depositBtn);
         panel.add(transferBtn);
         panel.add(balanceBtn);
-        panel.add(checkingRBtn);
-        panel.add(savingsRBtn);
-        panel.add(text);
+        panel.add(checkingRadioBtn);
+        panel.add(savingsRadioBtn);
+        panel.add(textField);
 
         //-----> Frame <-----//
-        JFrame frame = new JFrame("ATM Machine");
+        frame = new JFrame("ATM Machine");
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
         frame.add(panel);
 
@@ -66,39 +68,73 @@ public class P2GUI {
         //-----> ActionListeners <-----//
         //withdraw button w/ event handling (joptionpane error for insufficientFunds exception)
         withdrawBtn.addActionListener(e -> {
-            System.out.println("Boom, Withdraw of " + text.getText() + " from " + group.getSelection().getActionCommand() + " !!!!");
-
+            System.out.println("Withdraw of " + textField.getText() + " from " + btnGroup.getSelection().getActionCommand());
+            if (btnGroup.getSelection().getActionCommand().equals("Checking")) {
+                try {
+                    checking.withdraw(Double.parseDouble(textField.getText()));
+                } catch (InsufficientFunds funds) {
+                    System.out.println(funds.getDeficientFunds() + " needed");
+                    JOptionPane.showMessageDialog(frame,
+                            "Deficient funds of $" + funds.getDeficientFunds(),
+                            "Deficient Funds",
+                            JOptionPane.PLAIN_MESSAGE);
+                }
+            }
+            if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
+                try {
+                    checking.withdraw(Double.parseDouble(textField.getText()));
+                } catch (InsufficientFunds funds) {
+                    System.out.println(funds.getDeficientFunds() + " needed");
+                    JOptionPane.showMessageDialog(frame,
+                            "Deficient funds of $" + funds.getDeficientFunds(),
+                            "Deficient Funds",
+                            JOptionPane.PLAIN_MESSAGE);
+                }
+            }
         });
 
         //deposit button w/ event handling
         depositBtn.addActionListener(e -> {
-            System.out.println("Deposit of " + text.getText() + " to " + group.getSelection().getActionCommand() + " account");
-            if (group.getSelection().getActionCommand() == "Checking" ) {
-                checking.deposit(Double.parseDouble(text.getText()));
+            System.out.println("Deposit of " + textField.getText() + " to " + btnGroup.getSelection().getActionCommand() + " account");
+            if (btnGroup.getSelection().getActionCommand().equals("Checking")) {
+                checking.deposit(Double.parseDouble(textField.getText()));
             }
-            if (group.getSelection().getActionCommand() == "Savings" ) {
-                savings.deposit(Double.parseDouble(text.getText()));
+            if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
+                savings.deposit(Double.parseDouble(textField.getText()));
             }
         });
 
         //transfer to button w/ event handling (joptionpane error for insufficientFunds exception)
         transferBtn.addActionListener(e -> {
-            System.out.println("Tots!, Transferred " + text.getText() + " from " + group.getSelection().getActionCommand() + " !");
-            
+            System.out.println("Tots!, Transferred " + textField.getText() + " from " + btnGroup.getSelection().getActionCommand() + " !");
+            if (btnGroup.getSelection().getActionCommand().equals("Checking")) {
+                try {
+                    checking.transfer(Double.parseDouble(textField.getText()));
+                } catch (InsufficientFunds funds) {
+                    System.out.println(funds.getDeficientFunds() + " needed");
+                }
+            }
+            if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
+                try {
+                    checking.withdraw(Double.parseDouble(textField.getText()));
+                } catch (InsufficientFunds funds) {
+                    System.out.println(funds.getDeficientFunds() + " needed");
+                }
+            }
         });
 
         //balance button event handling
         balanceBtn.addActionListener(e -> {
-            System.out.println("Balance from " + group.getSelection().getActionCommand() + " is " + checking.balance());
-            if (group.getSelection().getActionCommand() == "Checking" ) {
+            System.out.println("Balance from " + btnGroup.getSelection().getActionCommand() + " is " + checking.balance());
+            if (btnGroup.getSelection().getActionCommand().equals("Checking")) {
                 JOptionPane.showMessageDialog(frame,
-                        group.getSelection().getActionCommand() + " account balance is $" + checking.balance(),
+                        btnGroup.getSelection().getActionCommand() + " account balance is $" + checking.balance(),
                         "Balance",
                         JOptionPane.PLAIN_MESSAGE);
             }
-            if (group.getSelection().getActionCommand() == "Savings" ) {
+            if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
                 JOptionPane.showMessageDialog(frame,
-                        group.getSelection().getActionCommand() + " account balance is $" + savings.balance(),
+                        btnGroup.getSelection().getActionCommand() + " account balance is $" + savings.balance(),
                         "Balance",
                         JOptionPane.PLAIN_MESSAGE);
             }
@@ -113,14 +149,14 @@ public class P2GUI {
     public static void main (String[] args) {
 
         //-----> Accounts <-----//
-        Account Checking = new Account();
-        Account Savings = new Account();
+        Account checking = new Account();
+        Account savings = new Account();
 
         //-----> GUI <-----//
-        SwingUtilities.invokeLater(new Runnable() {         //look into replacing with lambda
+        SwingUtilities.invokeLater( new Runnable() {         //look into replacing with lambda
             public void run() {
                 //create and run GUI object
-                new P2GUI(Checking, Savings);
+                new P2GUI(checking, savings);
             }
         });
 

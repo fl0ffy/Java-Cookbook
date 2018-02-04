@@ -5,25 +5,34 @@
  * Purpose: Used to create account objects
  */
 
+import java.text.DecimalFormat;
+
 public class Account {
 
-    //----- fields -----
+    //----- fields -----//
     private double balance;
-    private int count;
+    private int withdrawCount = 0;
+    //private DecimalFormat df = new DecimalFormat("#.##");
 
-    //----- constructor -----
+    //----- constructor -----//
     //one parameter representing the initial deposit
-    public void Account (double deposit) {
-        this.balance = deposit;
+    public void Account () {
+        this.balance = 0;
     }   //end Account constructor
 
-    //----- Methods -----
+    //----- Methods -----//
     //withdraw method (must throw InsufficientFunds exception when attempt to use more funds than available)
     public void withdraw (double requestedAmount) throws InsufficientFunds {
         //Add in insufficient funds check and throw exception
+        withdrawCount++;
+        //logic to charge $1.25 on every 5th withdrawal from either account
+        if (withdrawCount % 5 == 0) {
+            requestedAmount = requestedAmount + 1.25;
+        }
+
         if ( requestedAmount <= balance ) {
             balance = balance - requestedAmount;
-            //logic to charge $1.25 on every 5th withdrawal from either account
+
         } else {
             double amountNeeded = requestedAmount - balance;
             throw new InsufficientFunds(amountNeeded);
