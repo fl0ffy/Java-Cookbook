@@ -45,6 +45,7 @@ public class Account {
     }   //end deposit method
 
     //transfer to method (must throw InsufficientFunds exception when attempt to use more funds than available)
+    /*
     public void transfer (double transferAmount) throws InsufficientFunds {
         //figure out how to transfer
         if ( transferAmount <= balance ) {
@@ -54,8 +55,9 @@ public class Account {
             throw new InsufficientFunds(amountNeeded);
         }
     }
-    //balance method
+    */
 
+    //balance method
     public double balance () {
         return balance;
     }   //end balance method

@@ -21,8 +21,6 @@ public class P2GUI {
     private ButtonGroup btnGroup;
     private JPanel panel;
     private JFrame frame;
-    //private Account checking;
-    //private Account savings;
     //private DecimalFormat df = new DecimalFormat("#.##");
 
 
@@ -104,21 +102,31 @@ public class P2GUI {
             }
         });
 
-        //transfer to button w/ event handling (joptionpane error for insufficientFunds exception)
+        // transfer to button w/ event handling (joptionpane error for insufficientFunds exception)
         transferBtn.addActionListener(e -> {
-            System.out.println("Tots!, Transferred " + textField.getText() + " from " + btnGroup.getSelection().getActionCommand() + " !");
+            System.out.println("Transferring " + textField.getText() + " to " + btnGroup.getSelection().getActionCommand() + " !");
             if (btnGroup.getSelection().getActionCommand().equals("Checking")) {
                 try {
-                    checking.transfer(Double.parseDouble(textField.getText()));
+                    savings.withdraw(Double.parseDouble(textField.getText()));
+                    checking.deposit(Double.parseDouble(textField.getText()));
                 } catch (InsufficientFunds funds) {
                     System.out.println(funds.getDeficientFunds() + " needed");
+                    JOptionPane.showMessageDialog(frame,
+                            "Deficient funds of $" + funds.getDeficientFunds(),
+                            "Deficient Funds",
+                            JOptionPane.PLAIN_MESSAGE);
                 }
             }
             if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
                 try {
-                    savings.withdraw(Double.parseDouble(textField.getText()));
+                    checking.withdraw(Double.parseDouble(textField.getText()));
+                    savings.deposit(Double.parseDouble(textField.getText()));
                 } catch (InsufficientFunds funds) {
                     System.out.println(funds.getDeficientFunds() + " needed");
+                    JOptionPane.showMessageDialog(frame,
+                            "Deficient funds of $" + funds.getDeficientFunds(),
+                            "Deficient Funds",
+                            JOptionPane.PLAIN_MESSAGE);
                 }
             }
         });
