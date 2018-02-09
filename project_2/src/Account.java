@@ -45,17 +45,17 @@ public class Account {
     }   //end deposit method
 
     //transfer to method (must throw InsufficientFunds exception when attempt to use more funds than available)
-    /*
-    public void transfer (double transferAmount) throws InsufficientFunds {
+
+    public void transfer (double transferAmount, Account recipient) throws InsufficientFunds {
         //figure out how to transfer
         if ( transferAmount <= balance ) {
-            // transfer logic goes here
+            this.withdraw(transferAmount);
+            recipient.deposit(transferAmount);
         } else {
             double amountNeeded = transferAmount - balance;
             throw new InsufficientFunds(amountNeeded);
         }
     }
-    */
 
     //balance method
     public double balance () {

@@ -107,8 +107,9 @@ public class P2GUI {
             System.out.println("Transferring " + textField.getText() + " to " + btnGroup.getSelection().getActionCommand() + " !");
             if (btnGroup.getSelection().getActionCommand().equals("Checking")) {
                 try {
-                    savings.withdraw(Double.parseDouble(textField.getText()));
-                    checking.deposit(Double.parseDouble(textField.getText()));
+                    savings.transfer(Double.parseDouble(textField.getText()), checking);
+                    //savings.withdraw(Double.parseDouble(textField.getText()));
+                    //checking.deposit(Double.parseDouble(textField.getText()));
                 } catch (InsufficientFunds funds) {
                     System.out.println(funds.getDeficientFunds() + " needed");
                     JOptionPane.showMessageDialog(frame,
@@ -119,8 +120,9 @@ public class P2GUI {
             }
             if (btnGroup.getSelection().getActionCommand().equals("Savings")) {
                 try {
-                    checking.withdraw(Double.parseDouble(textField.getText()));
-                    savings.deposit(Double.parseDouble(textField.getText()));
+                    checking.transfer(Double.parseDouble(textField.getText()), savings);
+                    //checking.withdraw(Double.parseDouble(textField.getText()));
+                    //savings.deposit(Double.parseDouble(textField.getText()));
                 } catch (InsufficientFunds funds) {
                     System.out.println(funds.getDeficientFunds() + " needed");
                     JOptionPane.showMessageDialog(frame,
