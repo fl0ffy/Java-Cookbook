@@ -1,0 +1,5 @@
+Create your own simple Java application to generate X random Integer values between 0 and Y.
+Use command line arguments for entry of X and Y.  (You will recall that we used command line
+prompt early in our course.)
+
+Demonstrate your code compiles and runs without issue using screen captures as appropriate.
